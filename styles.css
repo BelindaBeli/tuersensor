@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #007bff; /* Blau */
+    text-align: center;
+}
+
+.status {
+    font-size: 24px;
+    margin: 20px;
+    padding: 10px;
+    background-color: #e6f7ff; /* Hellblau */
+    border-radius: 10px;
+    text-align: center;
+}
+
+.door-image {
+    display: block;
+    margin: 20px auto;
+    width: 150px;
+}

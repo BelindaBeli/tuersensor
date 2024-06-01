@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türsensor Alarm</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Türsensor Überwachung</h1>
+        <div id="status" class="status">Tür ist geschlossen!</div>
+        <img src="Türe.jpg" alt="Türe" class="door-image">
+    </div>
+    <script>
+        // Stellen Sie sicher, dass die Firebase-Skripte geladen sind, bevor Sie den Code ausführen
+        document.addEventListener('DOMContentLoaded', function() {
+            const firebaseConfig = {
+                apiKey: "AIzaSyAGQGxiggv1mz38G1L7rsF1xj4U7-B8mCQ",
+                authDomain: "tuersensor-1b3cd.firebaseapp.com",
+                databaseURL: "https://tuersensor-1b3cd-default-rtdb.europe-west1.firebasedatabase.app",
+                projectId: "tuersensor-1b3cd",
+                storageBucket: "tuersensor-1b3cd.appspot.com",
+                messagingSenderId: "352405331682",
+                appId: "1:352405331682:web:f29f8356481d76cfdb88bb"
+            };
+
+            // Firebase initialisieren
+            firebase.initializeApp(firebaseConfig);
+            const database = firebase.database();
+
+            const statusElement = document.getElementById('status');
+
+            function updateStatus(isOpen) {
+                statusElement.textContent = isOpen ? 'Tür ist offen' : 'Tür ist geschlossen';
+            }
+
+            // Verwende Firebase Realtime Database Listener
+            const statusRef = database.ref('doorStatus');
+            statusRef.on('value', (snapshot) => {
+                const data = snapshot.val();
+                updateStatus(data.isOpen);
+            }, (error) => {
+                console.error('Fehler beim Abrufen des Türstatus:', error);
+                statusElement.textContent = 'Fehler beim Laden des Türstatus.';
+            });
+        });
+    </script>
+</body>
+</html>

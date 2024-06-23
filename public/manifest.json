@@ -1,0 +1,23 @@
+{
+  "short_name": "Türsensor",
+  "name": "Türsensor Überwachung",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#4A90E2",
+  "description": "Türsensor um die Zeit der geöffneten Tür zu überwachen",
+  "icons": [
+    {
+        "src": "logo.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any"
+    },{
+        "src": "logo.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable"
+    }
+]
+}
